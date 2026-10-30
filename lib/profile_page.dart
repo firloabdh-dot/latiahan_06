@@ -6,6 +6,13 @@ class ProfilePage extends StatelessWidget {
   final String userName = 'Firlo Abdul Fatur';
   final String role = 'Mahasiswa Global Institute';
 
+  final List<String> experiences = const [
+    'Karyawan Gudang - PT. Niko Cahaya Electric',
+    'Project 1 - Website E-Commerce (Penjualan Manga)',
+    'Project 2 - Website Predator Gym',
+    'Barista dan Kasir - Zona Coffee',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +35,25 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               const ProfileStats(),
+              const SizedBox(height: 24),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Pengalaman Kerja',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const Divider(),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: experiences.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(experiences[index]),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
