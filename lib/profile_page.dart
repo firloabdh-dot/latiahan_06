@@ -22,8 +22,9 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
+      // Penyesuaian padding halaman agar lebih proporsional
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
         child: Center(
           child: Column(
             children: [
@@ -35,7 +36,7 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               const ProfileStats(),
-              const SizedBox(height: 24),
+              const SizedBox(height: 28),
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -43,7 +44,9 @@ class ProfilePage extends StatelessWidget {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
-              const Divider(),
+              const SizedBox(height: 4),
+              const Divider(thickness: 1),
+              const SizedBox(height: 8),
               Expanded(
                 child: ListView.builder(
                   itemCount: experiences.length,
@@ -111,7 +114,7 @@ class ProfileStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
       decoration: BoxDecoration(
         color: Colors.blue[50],
         borderRadius: BorderRadius.circular(12),
@@ -120,9 +123,9 @@ class ProfileStats extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           StatItem(count: '15', label: 'Proyek'),
-          SizedBox(width: 24),
+          SizedBox(width: 32),
           StatItem(count: '1.2K', label: 'Followers'),
-          SizedBox(width: 24),
+          SizedBox(width: 32),
           StatItem(count: '42', label: 'Following'),
         ],
       ),
@@ -152,7 +155,7 @@ class StatItem extends StatelessWidget {
             color: Colors.blueAccent,
           ),
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 6),
         Text(
           label,
           style: TextStyle(
@@ -179,6 +182,7 @@ class ExperienceCard extends StatelessWidget {
       elevation: 2,
       margin: const EdgeInsets.symmetric(vertical: 6),
       child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         leading: const Icon(Icons.work, color: Colors.blueAccent),
         title: Text(experience),
       ),

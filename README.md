@@ -69,3 +69,17 @@ Di sesi pagi Hari 3 ini, saya nambahin daftar pengalaman kerja yang bisa di-*scr
 Di sesi siang ini, tampilan tiap baris di `ListView.builder` di-*refactor* dan dirapiin:
 1. **Bikin widget `ExperienceCard`:** Memecah `ListTile` keluar jadi *custom widget* sendiri dengan parameter `experience`.
 2. **Styling pake `Card` dan Ikon:** Bungkus `ListTile` pake widget `Card` (`elevation: 2` dan `margin` vertikal 6) terus ditambahin ikon koper (`Icons.work` warna biru) di sebelah kirinya (`leading`).
+
+---
+
+## Hari 4: Finishing & Interaksi Statis (SnackBar)
+
+### Hari 4: Sesi Siang (Penyesuaian Tata Letak)
+Di sesi pagi Hari 4 ini, saya merapikan *padding* dan jarak (`SizedBox`) antar komponen supaya tampilan UI-nya lebih proporsional dan lega:
+1. Menyesuaikan `padding` utama pada `body` halaman profil (`horizontal: 20.0, vertical: 24.0`).
+2. Menambah ruang di dalam kotak `ProfileStats` (`SizedBox(width: 32)` antar item) dan memberi jarak pemisah pada `Divider` sebelum masuk ke daftar pengalaman kerja.
+
+### Hari 4: Sesi malam (Penambahan Aksi Statis pada Tombol)
+Di sesi siang (tahap terakhir) ini, saya menambahkan tombol **Edit Profil** beserta aksi interaktifnya:
+1. **Menambahkan `ElevatedButton.icon`:** Dilengkapi dengan ikon pensil (`Icons.edit`) dan label `'Edit Profil'`.
+2. **Menampilkan notifikasi `SnackBar`:** Saat tombol ditekan, `ScaffoldMessenger.of(context).showSnackBar(...)` akan memunculkan pesan `'Fitur edit belum aktif pada modul statis.'`. Karena `ProfilePage` sudah dipisah dari `MainApp` (`MaterialApp`), pemanggilan `context` untuk `SnackBar` bisa langsung berjalan normal tanpa *error* `No ScaffoldMessenger widget found`.
