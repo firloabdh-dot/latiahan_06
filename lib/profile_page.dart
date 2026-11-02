@@ -22,7 +22,6 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
-      // Penyesuaian padding halaman agar lebih proporsional
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
         child: Center(
@@ -34,6 +33,21 @@ class ProfilePage extends StatelessWidget {
                 userName: userName,
                 role: role,
               ),
+              const SizedBox(height: 20),
+
+              // Tambahan Hari 4 Siang: Tombol Edit Profil Statis dengan SnackBar
+              ElevatedButton.icon(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Fitur edit belum aktif pada modul statis.'),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.edit),
+                label: const Text('Edit Profil'),
+              ),
+
               const SizedBox(height: 24),
               const ProfileStats(),
               const SizedBox(height: 28),
